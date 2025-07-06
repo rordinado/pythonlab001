@@ -1,0 +1,42 @@
+Shutdown:   
+    sudo shutdown now
+    sudo poweroff
+    sudo reboot
+
+Activate environmnt
+    source myenv/bin/activate
+    rordinado@rordinado-VirtualBox:~/Desktop/env$ source pythonlab/bin/activate
+    (pythonlab) rordinado@rordinado-VirtualBox:~/Desktop/env$ 
+
+View content without cd or accesing: 
+    ls /path/to/folder
+
+    Including hidden files:
+    ls -la /etc
+
+Install ipython:
+    sudo apt update
+    sudo apt install ipython3
+
+Update name of folder
+    mv <old filename> <new filename> 
+
+extract files (.zip):
+    unzip ~/download/<name of the <zip files>
+
+
+Delete folder: 
+ rm -r [folder-name]
+
+Move files: 
+    mv [source-folder] [destination-folder]
+
+    Example:
+    Let's say you have this:
+    A folder: ProjectA/
+
+    You want to move it into ~/Documents/Archives/
+
+    mv ProjectA ~/Documents/Archives/
+    or
+
