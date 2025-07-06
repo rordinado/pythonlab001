@@ -1,0 +1,148 @@
+***
+General Linux: 
+    Update
+        sudo apt update
+    Check the OS version:
+        *lsb_release -a
+    Install Application:
+        sudo apt install (Application name)
+    IP address:
+        ipaddr
+
+
+***
+DEVNET REQUIREMENTS:
+Install Git:
+    sudo apt install git
+Install Python
+    sudo apt-add-repository ppa:deadsnakes/ppa
+    sudo apt install python3.9
+    sudo apt update
+    sudo apt install python3-PIP
+    Install PIP
+
+***
+ipython and .venv (Setup environment or VM inside ubuntu/Isolated)
+    create
+    Activate
+    Install any software this will be locatilize.
+    Steps:
+        create directory and run:
+        sudo apt install python3-venv
+
+        Run: 
+        python3 -m venv venv (.venv is the name of the VM) <-- access the directiry created and run source (directory name) 
+        * run ls -a to verify the folder created.
+        Output// /Desktop/pythonproject1/.venv$ 
+
+        To activate the environment:
+        source (directory name)/bin/activate
+        Output: (.venv) rordinado@rordinado-VirtualBox:~/Desktop/pythonproject1/.venv$ 
+
+        To decativate:
+        (.venv) rordinado@rordinado-VirtualBox:~/Desktop/pythonproject1/.venv$ deactivate 
+        rordinado@rordinado-VirtualBox:~/Desktop/pythonproject1/.venv$ 
+
+        Next is install ipython inside environment:
+        rordinado@rordinado-VirtualBox:~/Desktop/pythonproject1/.venv$ sudo apt install python3-pip y
+
+        Next install ipython inside virtual environment: (access environment)
+        (.venv) rordinado@rordinado-VirtualBox:~/Desktop/pythonproject1/.venv$ pip3 install ipython
+
+        If installation succesfull:
+        (.venv) rordinado@rordinado-VirtualBox:~/Desktop/pythonproject1/.venv$ ipython
+        Python 3.10.12 (main, Feb  4 2025, 14:57:36) [GCC 11.4.0]
+        Type 'copyright', 'credits' or 'license' for more information
+        IPython 8.37.0 -- An enhanced Interactive Python. Type '?' for help.
+        In [1]: 
+
+        Delete .venv or environment.
+        Open your terminal.
+        rm -rf .venv
+        Navigate to the directory containing .venv (e.g., cd ~/Desktop/pythonproject1).
+        Run the command above.
+        This will permanently delete the .venv folder and all its contents.
+
+        To exit from the In [1]: prompt in IPython, you can use any of these commands:
+        Type exit and press Enter
+        Type quit and press Enter
+        Press Ctrl+D and then press Enter when prompted
+        Any of these will close the IPython interactive shell and return you to your normal terminal prompt.
+
+Install scrapli
+Exit from in [] type exit()
+
+Run: 
+    pip3 install scrapli <---  this creates SSH connectio to a cisco divice.
+
+    Output:
+    In [4]:
+    Do you really want to exit ([y]/n)? n
+
+    In [4]: exit()
+    (pythonlab) rordinado@rordinado-VirtualBox:~/Desktop/env$ pip install scrapli
+    Collecting scrapli
+    Downloading scrapli-2025.1.30-py3-none-any.whl (145 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 145.7/145.7 KB 2.4 MB/s eta 0:00:00
+    Installing collected packages: scrapli
+    Successfully installed scrapli-2025.1.30
+    (pythonlab) rordinado@rordinado-VirtualBox:~/Desktop/env$ 
+
+Login to cisco sandbox:
+    Choose "XE"  look for IOS XE on CSR latest AlwaysOn
+
+        
+
+
+        
+
+
+
+
+
+***
+VS Code extensions:
+    Remote SSH
+    ssh targets
+    Cisco IOS Syntax
+    better jinja
+    vscode-pdf
+
+***
+
+****
+Error: 
+    ssh: connect to host 192.168.1.23 port 22: Connection refused
+    *sudo apt-get install openssh-server openssh-client
+
+    How to Fix “E: Unable to Locate Package” Error on Ubuntu
+    https://www.veeble.com/kb/how-to-fix-e-unable-to-locate-package-error-on-ubuntu/
+    *apt update && sudo apt upgrade -y
+
+How To: 
+https://documentation.ubuntu.com/server/how-to/software/package-management/index.html
+  
+To List all Installed Packages
+
+Here less is a simple text reader used to scroll through the list of packages in a new buffer that opens in the existing terminal window. The list will not be mixed with other terminal commands and output. Hit q to return to the terminal prompt. See man less for more info.
+
+dpkg -l | less
+To check whether a package is installed or not:
+
+dpkg -l {package_name}
+dpkg -l vlc
+To check if the package is installed or not (for example, vlc). If installed, launch the package:
+
+dpkg -l | grep vlc
+Show the location where the package is installed. The -S (capital S) stands for "search"
+
+sudo dpkg -S {package_name}
+sudo dpkg -S skype
+
+To use Grep to search ready to install:
+    dpkg -l | grep {keywords}
+    dpkg -l | grep pdf
+
+****
+Modules:
+    

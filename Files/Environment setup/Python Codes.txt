@@ -1,0 +1,65 @@
+
+***LIST***
+rordinado@rordinado-VirtualBox:~$ python3
+Python 3.10.12 (main, Feb  4 2025, 14:57:36) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> my_routes = ["10.0.0.0/30", "192.168.10.0/24", "172.16.0.0/16"]
+>>> my_routes
+['10.0.0.0/30', '192.168.10.0/24', '172.16.0.0/16']
+
+
+***Append: 
+>>> my_routes.append("8.8.8.8/32")
+>>> my_routes
+['10.0.0.0/30', '192.168.10.0/24', '172.16.0.0/16', '8.8.8.8/32']
+
+
+***locate data
+>>> my_routes[0]
+'10.0.0.0/30'
+>>> my_routes[1]
+'192.168.10.0/24'
+
+***Create Credentials
+SyntaxError: invalid syntax
+>>> my_credentials = {"hostname": "192.168.31.101",
+... "username": "Rey",
+... "port": "22",
+... "password": "cisco",
+... "password": "cisco"}
+>>>
+
+***Add new key
+>>> my_credentials["port"]
+'22'
+>>> my_credentials["platform"] = "Cisco_IOS"
+>>> my_credentials
+{'hostname': '192.168.31.101', 'username': 'Rey', 'port': '22', 'password': 'cisco', 'platform': 'Cisco_IOS'}
+>>>
+
+***Create SET
+>>> set_of_vlan = {"vlan 5", "vlan 10", "vlan 15"}
+>>> set_of_vlan
+{'vlan 15', 'vlan 5', 'vlan 10'}
+>>>
+
+***Add method
+>>> set_of_vlan = {"vlan 5", "vlan 10", "vlan 15"}
+>>> set_of_vlan
+{'vlan 15', 'vlan 5', 'vlan 10'}
+>>>
+
+***String
+my_string = "CBT nugets"
+
+***
+variable
+>>> name = "jhon"
+>>> name[0]
+
+***
+Doc String
+
+***
+Run a script:
+rordinado@rordinado-VirtualBox:~/Desktop/projectsample$ python3 docstring-example.py 
