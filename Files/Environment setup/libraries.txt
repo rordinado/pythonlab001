@@ -2,3 +2,12 @@ NAPALM:
 
 SCRAPLI:
  python3 install -m pip install scrapli
+
+ Output:
+    rordinado@rordinado-VirtualBox:~/pythonlab001-1/Github/PythonCode$ python3 -m pip install scrapli
+    Defaulting to user installation because normal site-packages is not writeable
+    Collecting scrapli
+    Using cached scrapli-2025.1.30-py3-none-any.whl (145 kB)
+    Installing collected packages: scrapli
+    Successfully installed scrapli-2025.1.30
+
