@@ -1,0 +1,27 @@
+import time
+
+shell = ssh_client.invoke_shell()
+
+# Disable paging first
+shell.send('terminal length 0\n')
+time.sleep(1)
+output = shell.recv(10000).decode()
+print(output)
+
+# Send show version
+shell.send('show version\n')
+time.sleep(2)
+output = shell.recv(10000).decode()
+print(output)
+
+# Send show running-config
+shell.send('show running-config\n')
+time.sleep(3)
+output = shell.recv(20000).decode()
+print(output)
+
+# Send show ip int brief
+shell.send('show ip int brief\n')
+time.sleep(2)
+output = shell.recv(10000).decode()
+print(output)
