@@ -1,0 +1,44 @@
+# switch_config.py
+import paramiko
+import time
+
+# === [Edit This] ===
+device_ip = "192.168.1.11"   # IP of your new switch
+new_hostname = "Switch1"
+interface = "Vlan1"
+new_ip = "192.168.1.100"
+subnet_mask = "255.255.255.0"
+default_gw = "192.168.1.1"
+
+username = "admin"
+password = "cisco"
+
+commands = [
+    "enable",
+    "configure terminal",
+    f"hostname {new_hostname}",
+    f"interface {interface}",
+    f"ip address {new_ip} {subnet_mask}",
+    "no shutdown",
+    f"exit",
+    f"ip default-gateway {default_gw}",
+    "end",
+    "write memory"
+]
+
+# === [SSH Connection Setup] ===
+ssh = paramiko.SSHClient()
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+ssh.connect(device_ip, username=username, password=password)
+shell = ssh.invoke_shell()
+
+# === [Send Commands] ===
+for cmd in commands:
+    shell.send(cmd + "\n")
+    time.sleep(1)
+
+# === [Get Output] ===
+output = shell.recv(5000)
+print(output.decode('utf-8'))
+
+ssh.close()

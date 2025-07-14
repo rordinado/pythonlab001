@@ -1,0 +1,31 @@
+# show_run.py
+import paramiko
+import time
+
+# === [Edit this IP Address for your switch] ===
+device_ip = "192.168.1.10"
+
+# === [Login credentials] ===
+username = "admin"
+password = "cisco"
+
+# === [Connect via SSH] ===
+ssh = paramiko.SSHClient()
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+ssh.connect(device_ip, username=username, password=password)
+
+# === [Open interactive shell] ===
+shell = ssh.invoke_shell()
+
+# === [Send 'show run' command] ===
+shell.send("terminal length 0\n")     # Prevent pagination
+time.sleep(1)
+shell.send("show running-config\n")
+time.sleep(3)                         # Wait for full output
+
+# === [Receive and decode output] ===
+output = shell.recv(10000)
+print(output.decode('utf-8'))
+
+# === [Close connection] ===
+ssh.close()

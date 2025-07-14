@@ -1,0 +1,57 @@
+
+[OK]
+R1(config)#ip domai
+R1(config)#ip domain-n
+R1(config)#ip domain-name domain.com
+R1(config)#cryp
+R1(config)#crypto ke
+R1(config)#crypto key gene
+R1(config)#crypto key generate rsa
+R1(config)#crypto key generate rsa
+The name for the keys will be: R1.domain.com
+Choose the size of the key modulus in the range of 360 to 4096 for your
+  General Purpose Keys. Choosing a key modulus greater than 512 may take
+  a few minutes.
+
+How many bits in the modulus [512]: 2048
+% Generating 2048 bit RSA keys, keys will be non-exportable...
+[OK] (elapsed time was 1 seconds)
+
+R1(config)#
+*Jul 13 08:05:17.117: %SSH-5-ENABLED: SSH 1.99 has been enabled
+R1(config)#
+
+
+R1(config)#ip ssh ver
+R1(config)#ip ssh version 2
+
+***
+R1(config)# hostname R1
+R1(config)# ip domain-name example.com
+R1(config)# crypto key generate rsa
+How many bits in the modulus [512]: 1024
+
+R1(config)# ip ssh version 2
+
+R1(config)# username admin privilege 15 secret cisco123
+
+R1(config)# line vty 0 4
+R1(config-line)# transport input ssh
+R1(config-line)# login local
+R1(config-line)# exit
+
+error: 
+Unable to negotiate with 192.168.2.21 port 22: no matching key exchange method found. Their offer: diffie-hellman-group14-sha1
+Fix:
+Add:
+conf t
+ip ssh server algorithm kex ecdh-sha2-nistp256
+ip ssh server algorithm encryption aes256-ctr aes192-ctr aes128-ctr
+ip ssh server algorithm mac hmac-sha2-256 hmac-sha2-512
+ip ssh server algorithm hostkey rsa-sha2-512 rsa-sha2-256
+
+and SSH like this:
+ssh -oKexAlgorithms=+diffie-hellman-group14-sha1 -oHostKeyAlgorithms=+ssh-rsa admin@192.168.2.21
+
+
+
