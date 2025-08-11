@@ -1,0 +1,29 @@
+***
+I got his erro from PW incorect and change the SSH key
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+SHA256:z53QnIl9QJwTMhSqMIYtohdHXzJMzJxh1DL5kw+2c0c.
+Please contact your system administrator.
+Add correct host key in /home/rordinado/.ssh/known_hosts to get rid of this message.
+Offending RSA key in /home/rordinado/.ssh/known_hosts:5
+  remove with:
+  ssh-keygen -f "/home/rordinado/.ssh/known_hosts" -R "192.168.85.132"
+Host key for 192.168.85.132 has changed and you have requested strict checking.
+Host key verification failed.
+rordinado@rordinado-VirtualBox:~$
+
+    ssh -oKexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 -oHostKeyAlgorithms=+ssh-rsa admin@192.168.85.132
+
+The error even shows you the exact command to run:
+    ssh-keygen -f "/home/rordinado/.ssh/known_hosts" -R "192.168.85.132"
+Try connecting again:
+    ssh -oKexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 -oHostKeyAlgorithms=+ssh-rsa admin@192.168.85.132
+    
+
+
+***
