@@ -1,2 +1,6 @@
 To add files at once:
-    Git add .
+   
+    git status 
+    git add . 
+    git commit 
+    gut push
